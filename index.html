@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Spinner UI</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="hero">
+          <p class="hero-kicker">Embodied energy interface</p>
+          <h1 class="hero-title">Spin Your Impact</h1>
+          <p class="hero-copy">
+            Human motion powers the spinner. Build enough motion output to fill
+            the goal meter, then let the spinner settle to its final stop.
+          </p>
+        </div>
+
+        <div class="controls">
+          <button id="startCameraBtn" class="primary-btn">Start Camera</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="left-column">
+          <article class="card spinner-panel">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">Live rotational interface</p>
+                <h2 class="panel-title">Calorie Spinner</h2>
+              </div>
+              <div id="systemStatus" class="status-pill offline">Idle</div>
+            </div>
+
+            <div class="spinner-stage">
+              <div id="spinnerMount" class="spinner-mount">
+                <div id="spinnerWheel" class="spinner-wheel">
+                  <div class="spinner-center"></div>
+
+                  <div class="segment seg-1">
+                    <span>Street<br />Lighting</span>
+                  </div>
+                  <div class="segment seg-2">
+                    <span>Heating<br />Support</span>
+                  </div>
+                  <div class="segment seg-3">
+                    <span>Water<br />Systems</span>
+                  </div>
+                  <div class="segment seg-4">
+                    <span>Wind<br />Infrastructure</span>
+                  </div>
+                  <div class="segment seg-5">
+                    <span>Battery<br />Storage</span>
+                  </div>
+                  <div class="segment seg-6">
+                    <span>Community<br />Power</span>
+                  </div>
+                </div>
+
+                <div class="spinner-pointer"></div>
+              </div>
+            </div>
+
+            <div class="meta-row">
+              <div class="meta-card">
+                <p class="meta-label">Spinner speed</p>
+                <p id="spinnerSpeedValue" class="meta-value">0.00</p>
+              </div>
+
+              <div class="meta-card">
+                <p class="meta-label">Motion response</p>
+                <p id="rotationResponseValue" class="meta-value">idle</p>
+              </div>
+
+              <div class="meta-card">
+                <p class="meta-label">Calories converted</p>
+                <p id="calorieValue" class="meta-value">0</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <aside class="right-column">
+          <div class="stats-row">
+            <article class="stat-card">
+              <p class="stat-label">Motion detected</p>
+              <p id="peopleCountValue" class="stat-value">0</p>
+            </article>
+
+            <article class="stat-card">
+              <p class="stat-label">Motion output</p>
+              <p id="energyScoreValue" class="stat-value">0.00</p>
+            </article>
+          </div>
+
+          <article class="card outputs-panel">
+            <div class="panel-head compact-head">
+              <div>
+                <p class="panel-kicker">Motion target</p>
+                <h2 class="panel-title">Goal Progress</h2>
+              </div>
+            </div>
+
+            <div class="meter-group">
+              <div class="meter-item">
+                <div class="meter-label-row">
+                  <span class="meter-label">Motion output goal</span>
+                  <span id="goalValue" class="meter-value">0%</span>
+                </div>
+                <div class="meter-track">
+                  <div id="goalFill" class="meter-fill lighting"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card logs-panel">
+            <div class="panel-head compact-head">
+              <div>
+                <p class="panel-kicker">System activity</p>
+                <h2 class="panel-title">Live Log</h2>
+              </div>
+            </div>
+            <pre id="logBox" class="log-box"></pre>
+          </article>
+        </aside>
+      </main>
+
+      <video
+        id="cameraFeed"
+        class="hidden-capture"
+        autoplay
+        playsinline
+        muted
+      ></video>
+      <canvas id="motionSampler" class="hidden-capture debug-canvas"></canvas>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
